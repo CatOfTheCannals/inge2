@@ -86,7 +86,7 @@ b)
 
 # Ejercicio 6
 
-En $available expressions analysis$ vamos a considerar que se mata toda expresión que tenga algún operando overrideado por la operación actual. Se genera la expresión actual.
+En $available \ expressions \ analysis$ vamos a considerar que se mata toda expresión que tenga algún operando overrideado por la operación actual. Se genera la expresión actual.
 
 | Nodo n      | IN[n]        		| OUT[n]      		|
 | ----------- | ------------------- | ----------------- |
@@ -109,10 +109,25 @@ En $available expressions analysis$ vamos a considerar que se mata toda expresi�
 | Must        | Available Expressions   | Very busy expressions	|
 
 
-
 # Ejercicio 8
 
 ![Points to graph](./points_to_graph_p1_ej8.png){height=210px}
+
+
+# Ejercicio 9
+
+Las siguientes reglas deben ser especificadas como hechos ya conocidos sobre el programa:
+
+| kill(n:N, v:V) 
+| gen(n:N, v:V)
+| next(n:N, m:N)
+
+
+Defino las siguientes reglas:
+
+| in(n, v) :- out(n, v), !kill(n, v)
+| in(n,v) :- gen(n, v)
+| out(n, v) :- next(n, m), in(m, v)
 
 
 
