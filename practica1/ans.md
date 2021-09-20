@@ -6,6 +6,7 @@ geometry: "left=1cm,right=1cm,top=2cm,bottom=2cm"
 
 #### Autor: Carlos Giudice
 
+
 # Ejercicio 1
 
 
