@@ -1,9 +1,5 @@
 dudas
 
-# p1
-
-intuitivamente por que reaching definitions es may? que pasa si una variable se define en una branch de un if pero el programa va por la otra branch?
-
 
 ## ej5
 teniendo este codigo
@@ -24,7 +20,7 @@ eso mata var?? ANS: no lo mata
 
 en \{available\|very busy\} expressions se tiene en cuenta las expresiones usadas en la clausula de un if-statement? ANS: si
 se considera que m[ i ] es una expresion?? ANS: si
-se considera que bar(M, a ) es una expresion?? ANS: no, se resolveria haciendo que el analisis sea interprocedural. se considera que las expresiones "M" y "a" fueron usadas
+se considera que bar(blabla, blibli ) es una expresion?? ANS: solo se considera expresion cuando la funcion devuelve un valor. se considera que las expresiones "blabla" y "blibli" fueron usadas (a menos que sean expresiones triviales)
 
 
 # ej8
