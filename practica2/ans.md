@@ -41,8 +41,8 @@ Si reemplazamos cualquiera de las desigualdades del primer if por el signo ">" (
 | root | N0.left | N0.right | N1.left | N1.right | N2.left | N2.right |
 | ---- | ------- | -------- | ------- | -------- | ------- | -------- |
 | N0   | NULL	 | N1		| N2	  | NULL	 | NULL    | NULL	  |
-| N0   | N2	 	 | N1		| NULL	  | NULL	 | NULL    | NULL	  |
-| N0   | N1		 | NULL		| NULL	  | NULL	 | NULL    | NULL	  |
+| N0   | N1	     | NULL     | NULL	  | NULL	 | NULL    | NULL	  |
+| N0   | N1	     | NULL     | NULL	  | N2  	 | NULL    | NULL	  |
 
 #### Explicacion:
 
