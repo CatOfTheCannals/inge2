@@ -44,15 +44,56 @@ Si reemplazamos cualquiera de las desigualdades del primer if por el signo ">" (
 | N0   | N1	     | NULL     | NULL	  | NULL	 | NULL    | NULL	  |
 | N0   | N1	     | NULL     | NULL	  | N2  	 | NULL    | NULL	  |
 
-#### Explicacion:
 
-- Korat expande el último campo accedido en la funcion de invariante (en el caso el nodo derecho del último nodo) o de ser imposible hace backtracking.
-- El árbol que nos dan en la consigna ya tiene tres nodos, con lo cual no se puede agregar otro nodo.
-- El árbol que nos dan en la consigna tiene a N2 como hijo izquierdo de N1 y N1 como hijo derecho de N0.
-- En la función de invariante se accede primero a $current.left$ y luego a $current.right$
-- Podemos decir que ya se exploró la posibilidad de poner a N2 como hijo derecho de N1.
-- Entonces el campo accedido previamente es $N0.left$ y ahí es donde ponemos N2. DUDA: es aceptable que no quede monotono?
-- Luego, volvemos a hacer backtracking (eliminando N2) y ponemos a N1 como hijo izquierdo de N0. 
+
+\newpage 
+
+# Ejercicio 6
+
+![Pseudocode](./ej6_code.png)
+
+
+# Ejercicio 7
+
+1. 
+|   bt = BinaryTree(NULL);
+
+2. 
+|   bt = BinaryTree(NULL);
+|	bt.removeRoot();
+
+3. 
+|   n1 = Node(NULL, NULL);
+|   n2 = Node(n1, n1);
+|   bt = BinaryTree(NULL);
+
+
+- Las secuencias dos y tres seran descartadas por arrojar errores en su ejecución.
+
+- La secuencia uno puede o no ser útil para evidenciar algún error en el código a testear.
+
+		- En caso afirmativo será enviada al usuario como información para arreglar el código.
+
+		- Si no rompe el código, será enviada al conjunto de componentes donde será un posible elemento a usar a la hora de crear estructuras mas complejas
+
+
+
+# Ejercicio 8
+
+![Pseudocode](./ej8_code.png)
+
+![Computation tree](./points_to_graph_p2_ej8.png)
+
+| x | cond de ruta enviada 					  |
+| - | --------------------------------------- |
+| 1 | $5 \neq x \land 7 \neq x \land 9 = x$	  |
+| 9 | $5 \neq x \land 7 = x$ 				  |
+| 7 | $5 \neq x$ 			 				  |
+
+
+
+
+
 
 
 
