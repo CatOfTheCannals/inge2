@@ -13,7 +13,7 @@ geometry: "left=1cm,right=1cm,top=2cm,bottom=2cm"
 
 DUDA: como pido que A esté inicializado? Está bien pedir que sea distinto de null?
 
-precondición: $A \neq Null \land B \neq Null \land B.length \leq A.length$
+precondición: $A \neq Null \land B \neq Null \land B.length \geq A.length$
 
 
 
@@ -78,11 +78,13 @@ Si reemplazamos cualquiera de las desigualdades del primer if por el signo ">" (
 
 
 
+\newpage 
+
 # Ejercicio 8
 
-![Pseudocode](./ej8_code.png)
+![Pseudocode](./ej8_code.png){height=300px}
 
-![Computation tree](./points_to_graph_p2_ej8.png)
+![Computation tree](./computation_tree_ej8.png){height=300px}
 
 | x | cond de ruta enviada 					  |
 | - | --------------------------------------- |
@@ -92,7 +94,25 @@ Si reemplazamos cualquiera de las desigualdades del primer if por el signo ">" (
 
 
 
+\newpage 
 
+# Ejercicio 9
+
+![Control flow graph](./control_flow_graph_ej9.png){height=300px}
+
+![Control dependency graph](./control_dependency_graph_ej9.png){height=200px}
+
+- Asumiendo un valor de K=5, la distancia del branch L1 para el input x = -15 es:
+	
+	- $L1-true = a > b \ ? \ 0 : (b - a) + K = -15 > 0 \ ? \ 0 : (0 - (-15)) + 5 = (0 - (-15)) + 5 = 20$
+
+	- $L1-false = a \leq b \ ? \ 0 : (a - b) = -15 \leq 0 \ ? \ 0 : -15 - 0 = 0$
+
+- Asumiendo un valor de K=5, la distancia del branch L4 para el input x = -10 es:
+
+	- $L4-true = abs(-10 - 0) = 10
+
+	- $L4-false = a != b ? 0 : K = -10 != 0 ? 0 : 5 = 0
 
 
 
