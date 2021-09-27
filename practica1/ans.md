@@ -79,10 +79,13 @@ b)
 | 4           | {pid, k, j, i}		| {pid, k, j} 		|
 | 5           | {pid, k, j}         | {pid, k, h} 		|
 | 6           | {pid, k, h} 		| {pid, k, h} 		|
-| 7           | {pid, k} 			| {pid, k, h} 		|
+| 7           | {pid, k, h} 		| {pid, k, h} 		|
 | 8           | {pid, k, h}    		| {answer, pid, k} 	|
 | 9           | {answer, pid, k} 	| $\emptyset$ 		|
 | 10          | $\emptyset$    		| - 				|
+
+Notas:
+- en Live Variables no pasa como en Available Expressions que si se usa la variable en el mismo nodo en el que se asigna se ignora.
 
 
 # Ejercicio 6
