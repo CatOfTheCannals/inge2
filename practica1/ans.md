@@ -85,7 +85,7 @@ b)
 | 10          | $\emptyset$    		| - 				|
 
 Notas:
-- en Live Variables no pasa como en Available Expressions que si se usa la variable en el mismo nodo en el que se asigna se ignora.
+- en Live Variables no pasa como en Available Expressions que si se usa la variable en el mismo nodo en el que se asigna se ignora. DUDOSO
 
 
 # Ejercicio 6
@@ -107,7 +107,7 @@ En $available \ expressions \ analysis$ vamos a considerar que se mata toda expr
 Notas: 
 - considero que bar(M, a ) no es una expresión, porque su output no se asigna a ninguna variable. 
 - considero que M es una constante definida fuera de foo.
-- en Live Variables no pasa como en Available Expressions que si se usa la variable en el mismo nodo en el que se asigna se ignora.
+- en Live Variables no pasa como en Available Expressions que si se usa la variable en el mismo nodo en el que se asigna se ignora. DUDOSO
 
 # Ejercicio 7
 
