@@ -75,8 +75,8 @@ b)
 | 0           | -           		| {pid} 	  		|
 | 1           | {pid}          		| {pid, j}    		|
 | 2           | {pid, j}           	| {pid, j, i} 		|
-| 3           | {pid, j, i}			| {pid, k, j} 		|
-| 4           | {pid, k, j}			| {pid, k, j} 		|
+| 3           | {pid, j, i}			| {pid, k, j, i} 		|
+| 4           | {pid, k, j, i}		| {pid, k, j} 		|
 | 5           | {pid, k, j}         | {pid, k, h} 		|
 | 6           | {pid, k, h} 		| {pid, k, h} 		|
 | 7           | {pid, k} 			| {pid, k, h} 		|
@@ -98,9 +98,13 @@ En $available \ expressions \ analysis$ vamos a considerar que se mata toda expr
 | 4           | $\emptyset$    		| {m[i]} 	  		|
 | 5           | {m[i]}         		| $\emptyset$  		|
 | 6           | $\emptyset$   		| $\emptyset$ 		|
-| 8           | $\emptyset$    		| {bar(M, a )}		|
-| 9           | {bar(M, a )}		| -		 	  		|
+| 8           | $\emptyset$    		| $\emptyset$		|
+| 9           | $\emptyset$			| -		 	  		|
 
+Notas: 
+- considero que bar(M, a ) no es una expresión, porque su output no se asigna a ninguna variable. 
+- considero que M es una constante definida fuera de foo.
+- en Live Variables no pasa como en Available Expressions que si se usa la variable en el mismo nodo en el que se asigna se ignora.
 
 # Ejercicio 7
 
@@ -112,7 +116,26 @@ En $available \ expressions \ analysis$ vamos a considerar que se mata toda expr
 
 # Ejercicio 8
 
-![Points to graph](./points_to_graph_p1_ej8.png){height=210px}
+![Points to graph](./ej8_correcto.png){height=210px}
+
+#### Explicación
+
+1. Se crea var N1 apuntando a Nodo_1
+2. Se ignora n1.data porque se le asigna un primitivo
+3. Se crea root y se lo apunta a Nodo_1
+4. Se crea h y se lo apunta a Nodo_1 (porque root apunta solo a Nodo_1)
+5. Se ignora la línea h = h.left, porque h todavía no tiene ningún path con label left desde ninguno de los nodos a los que apunta
+6. Se crea var N2 apuntando a Nodo_2 (2do alloc site)
+7. Se ignora n2.data porque se le asigna un primitivo
+8. Se coloca una flecha de Nodo_1 a Nodo_2 con label left
+9. Se coloca flecha de Nodo_2 a Nodo_1 con label parent (porque n2 apunta solo a Nodo_2 y h apunta solo a Nodo_1)
+
+#### === Hasta acá la primera iteración ===
+
+10. Del primer if no se modifica nada, pero cuando llegamos a la línea h = h.left pasa algo. Agregamos una flecha de Nodo_1 a Nodo_2 (porque h.left apunta a Nodo_2)
+11. La siguiente línea que cambia algo es h.left = n2, donde ahora tenemos que agregar flechas de Nodo_1 a Nodo_2 con label left (esta ya está de la iteración anterior), y flecha de Nodo_2 a Nodo_2 con label left
+12. Por razonamiento análogo, acá agregamos flecha parent que loopea sobre Nodo_2
+
 
 
 # Ejercicio 9

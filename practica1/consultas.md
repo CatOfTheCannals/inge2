@@ -18,7 +18,10 @@ eso mata var?? ANS: no lo mata
 
 ## ej6
 
-en \{available\|very busy\} expressions se tiene en cuenta las expresiones usadas en la clausula de un if-statement? ANS: si
+en \{available\|very busy\} expressions se tiene en cuenta las expresiones usadas en la clausula de un if-statement? 
+ANS catedra: si
+polemica: en las slides dice que para very busy expresions no
+
 se considera que m[ i ] es una expresion?? ANS: si
 se considera que bar(blabla, blibli ) es una expresion?? ANS: solo se considera expresion cuando la funcion devuelve un valor. se considera que las expresiones "blabla" y "blibli" fueron usadas (a menos que sean expresiones triviales)
 
