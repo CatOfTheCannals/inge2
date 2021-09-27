@@ -19,13 +19,13 @@ precondición: $A \neq Null \land B \neq Null \land B.length \geq A.length$
 
 # Ejercicio 2
 
-![Pseudocode](./ej2_code.png){height=50px}
+![Pseudocode](./ej2_code_neg.jpg){height=50px}
 
 
 
 # Ejercicio 3
 
-![Pseudocode](./ej3_code.png){height=50px}
+![Pseudocode](./ej3_code_neg.jpg){height=50px}
 
 
 
@@ -50,7 +50,7 @@ Si reemplazamos cualquiera de las desigualdades del primer if por el signo ">" (
 
 # Ejercicio 6
 
-![Pseudocode](./ej6_code.png)
+![Pseudocode](./ej6_code_neg.jpg)
 
 
 # Ejercicio 7
@@ -82,7 +82,7 @@ Si reemplazamos cualquiera de las desigualdades del primer if por el signo ">" (
 
 # Ejercicio 8
 
-![Pseudocode](./ej8_code.png){height=300px}
+![Pseudocode](./ej8_code_neg.jpg){height=300px}
 
 ![Computation tree](./computation_tree_ej8.png){height=300px}
 
