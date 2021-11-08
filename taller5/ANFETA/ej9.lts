@@ -1,0 +1,30 @@
+const CANTIDAD_DE_TURISTAS = 2
+
+range RANGO_DE_TURISTAS = 0..((2*CANTIDAD_DE_TURISTAS)+1)
+
+ENTRADA = (entry->ENTRADA) + {open,close,exit,empty}. //¿Para qué quiero este proceso si CONTROL hace todo?
+
+SALIDA = (exit->SALIDA) + {open,close,entry,empty}. //Idem
+
+DIRECTOR = DIRECTOR[0],
+
+DIRECTOR[estado:0..2] = (when (estado == 0) empty->DIRECTOR[1]|when (estado == 1) open->DIRECTOR[2]|when (estado == 2) close -> DIRECTOR[0]) + {entry,exit}. //¿Cómo modelo la espera? Si hago lo mismo que en control, queda el mismo proceso
+
+CONTROL = CONTROL[CANTIDAD_DE_TURISTAS+1],
+
+CONTROL[turistas:RANGO_DE_TURISTAS] = (		when (turistas == (CANTIDAD_DE_TURISTAS+1)) empty->open->CONTROL[0]|
+											when (turistas<=CANTIDAD_DE_TURISTAS && turistas >= 0) close->CONTROL[turistas+CANTIDAD_DE_TURISTAS+1]| // 0 -> 1 -> 2     -> 3 -> 4 -> 5 
+											when (turistas>=0 && turistas<CANTIDAD_DE_TURISTAS) entry->CONTROL[turistas+1]|
+											when (turistas != 0 && turistas != (CANTIDAD_DE_TURISTAS+1)) exit->CONTROL[turistas-1]).
+
+||MUSEO = ({a,b,c}::CONTROL || a::ENTRADA || b::SALIDA || c::DIRECTOR).
+
+property NO_ENTRIES_AFTER_CLOSING = NO_ENTRIES_AFTER_CLOSING[0],
+NO_ENTRIES_AFTER_CLOSING[0] = ({c.empty,c.close}->NO_ENTRIES_AFTER_CLOSING[0]|c.open->NO_ENTRIES_AFTER_CLOSING[1]),
+NO_ENTRIES_AFTER_CLOSING[1] = ({c.empty,a.entry, c.open}->NO_ENTRIES_AFTER_CLOSING[1]|c.close->NO_ENTRIES_AFTER_CLOSING[0]).
+
+property NO_EXITS_AFTER_CLOSING = NO_EXITS_AFTER_CLOSING[0],
+NO_EXITS_AFTER_CLOSING[0] = ({c.empty,c.close}->NO_EXITS_AFTER_CLOSING[0]|c.open->NO_EXITS_AFTER_CLOSING[1]),
+NO_EXITS_AFTER_CLOSING[1] = ({c.empty,b.exit, c.open}->NO_EXITS_AFTER_CLOSING[1]|c.close->NO_EXITS_AFTER_CLOSING[0]).
+
+||VERIFICAR_MUSEO = (MUSEO || NO_ENTRIES_AFTER_CLOSING).
